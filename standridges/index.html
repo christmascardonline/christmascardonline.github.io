@@ -24,7 +24,8 @@
             src: '/standridges/images/2023-1.jpg',
             width: 1600,
             height: 2000,
-            alt: 'Solo\'s first birthday party'
+            alt: 'Solo\'s first birthday party',
+            caption: 'Solo loved his first birthday party! We <a href="https://www.google.com/" target="_blank">love</a> him.'
         },{
             src: '/standridges/images/2023-2.jpg',
             width: 1600,
@@ -183,18 +184,16 @@
         isButton: false,
         appendTo: 'root',
         html: 'Caption text',
-        onInit: (el, pswp) => {console.log( 'el', el );console.log( 'pswp', pswp );
-            lightbox.pswp.on('change', () => {console.log( 'lightbox.pswp.currSlide', lightbox.pswp.currSlide );
-                const currSlideElement = lightbox.pswp.currSlide.data.element;
+        onInit: (el, pswp) => {
+            lightbox.pswp.on('change', () => {
+                const isCurrSlideCaption = 'caption' in lightbox.pswp.currSlide.data;
                 let captionHTML = '';
-                if (currSlideElement) {
-                    const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content');
-                    if (hiddenCaption) {
-                        // get caption from element with class hidden-caption-content
-                        captionHTML = hiddenCaption.innerHTML;
+                if( isCurrSlideCaption ){
+                    const caption = lightbox.pswp.currSlide.data.caption;
+                    if( caption ){
+                        captionHTML = caption;
                     } else {
-                        // get caption from alt attribute
-                        captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
+                        captionHTML = lightbox.pswp.currSlide.data.alt;
                     }
                 }
                 el.innerHTML = captionHTML || '';
