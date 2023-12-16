@@ -408,10 +408,11 @@ div.pswp__img--placeholder,
   height: 30px;
   margin-top: 15px;
   margin-inline-start: 20px;
+  font-family: 'Work Sans';
   font-size: 14px;
   line-height: 30px;
   color: var(--pswp-icon-color);
-  text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary);
+  /* text-shadow: 1px 1px 3px var(--pswp-icon-color-secondary); */
   opacity: 0.85;
 }
 

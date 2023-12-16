@@ -18,11 +18,11 @@ html {
   background-attachment: fixed
 }
 
-main {
+.page-main {
   padding-block: 3.125rem
 }
 @media (min-width:48em){
-  main {
+  .page-main {
     padding-block-start: 6.25rem
   }
 }
@@ -37,23 +37,23 @@ main {
     translate: 0
   }
 }
-header {
+.page-header {
   animation: fadeSlideIn 2000ms ease both;
   position: sticky;
   inset-block-start: 1.25rem
 }
 @media (min-width:48em){
-  header {
+  .page-header {
     inset-block-start: 2.5rem
   }
 }
-header.overlapped { z-index:1 }
-header.overlapped h1 {
+.page-header.overlapped { z-index:1 }
+.page-header.overlapped h1 {
   background-color: #fafffc;
   border-radius: .75rem;
   padding: .625rem 1.25rem .875rem .9375rem;
 }
-header.overlapped h1::after {
+.page-header.overlapped h1::after {
   display: none
 }
 
@@ -61,7 +61,7 @@ header.overlapped h1::after {
   font-family: Caveat
 }
 
-h1 {
+.page-h1 {
   color: darkgoldenrod;
   mix-blend-mode: multiply;
   font-size: 3.125rem;
@@ -72,11 +72,11 @@ h1 {
   transition: background-color 500ms ease, border-radius 500ms ease, padding 500ms ease
 }
 @media (min-width:30em){
-  h1 {
+  .page-h1 {
     font-size: 4vi
   }
 }
-h1::after {
+.page-h1::after {
   animation: fadeSlideIn 1000ms ease 1000ms both;
   content: "";
   display: block;
@@ -86,7 +86,7 @@ h1::after {
   margin: .625rem auto 0
 }
 
-section {
+.page-body {
   animation: fadeSlideIn 1000ms ease 1000ms both;
   font-size: .9375rem;
   inline-size: 100%;
@@ -95,13 +95,13 @@ section {
   margin: 3.125rem auto 0
 }
 @media (min-width:30em){
-  section {
+  .page-body {
     font-size: 1.125rem;
     margin-block-start: 6.25rem
   }
 }
 
-:is(p, li) {
+:is(.page-body p, .page-body li) {
   font-family: "Work Sans";
   font-size: inherit;
   color: #222;
@@ -109,27 +109,27 @@ section {
   line-height: 1.4
 }
 
-p:not(:first-child) {
+.page-body p:not(:first-child) {
   margin: 1.5em 0 0
 }
 
-p + ol {
+.page-body p + ol {
   counter-reset: section;
   list-style: none;
   margin: .5em 0 0;
   padding-inline-start: 3.5em
 }
 
-p + ol li {
+.page-body p + ol li {
   counter-increment: section;
   position: relative
 }
 
-p + ol li:not(:first-child) {
+.page-body p + ol li:not(:first-child) {
   margin-block-start: .5em
 }
 
-p + ol li::before {
+.page-body p + ol li::before {
   background-color: darkgoldenrod;
   border-radius: 50%;
   color: #fff;
@@ -144,7 +144,7 @@ p + ol li::before {
   text-align: center
 }
 
-p > button {
+.page-body p > button {
   display: block;
   appearance: none;
   background-color: darkgoldenrod;
