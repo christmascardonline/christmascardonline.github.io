@@ -172,8 +172,35 @@
             alt: 'More family pictures'
         }
     ],
+    bgOpacity: .7,
     showHideAnimationType: 'none',
     pswpModule: () => import( '/scripts/photoswipe.esm.js' )
+  });
+  lightbox.on( 'uiRegister', () => {
+    lightbox.pswp.ui.registerElement({
+        name: 'custom-caption',
+        order: 9,
+        isButton: false,
+        appendTo: 'root',
+        html: 'Caption text',
+        onInit: (el, pswp) => {console.log( 'el', el );console.log( 'pswp', pswp );
+            lightbox.pswp.on('change', () => {console.log( 'lightbox.pswp.currSlide', lightbox.pswp.currSlide );
+                const currSlideElement = lightbox.pswp.currSlide.data.element;
+                let captionHTML = '';
+                if (currSlideElement) {
+                    const hiddenCaption = currSlideElement.querySelector('.hidden-caption-content');
+                    if (hiddenCaption) {
+                        // get caption from element with class hidden-caption-content
+                        captionHTML = hiddenCaption.innerHTML;
+                    } else {
+                        // get caption from alt attribute
+                        captionHTML = currSlideElement.querySelector('img').getAttribute('alt');
+                    }
+                }
+                el.innerHTML = captionHTML || '';
+            });
+        }
+    });
   });
   lightbox.init();
   document.getElementById( 'slideshow-btn' ).addEventListener( 'click', clickEvt => lightbox.loadAndOpen(0) );

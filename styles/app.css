@@ -62,14 +62,18 @@ html {
 }
 
 .page-h1 {
-  color: darkgoldenrod;
-  mix-blend-mode: multiply;
+  color: #A67808;
   font-size: 3.125rem;
   line-height: 1;
   text-align: center;
   margin-inline: auto;
   inline-size: fit-content;
   transition: background-color 500ms ease, border-radius 500ms ease, padding 500ms ease
+}
+@supports (-webkit-touch-callout:none){
+  @media (min-width:20em) and (max-width:85.375em) and (hover:none){
+    .page-h1 { letter-spacing:-.05em }
+  }
 }
 @media (min-width:30em){
   .page-h1 {
@@ -147,7 +151,7 @@ html {
 .page-body p > button {
   display: block;
   appearance: none;
-  background-color: darkgoldenrod;
+  background-color: #A67808;
   border: 0;
   border-radius: .75rem;
   margin: 1em auto 0;
