@@ -162,3 +162,24 @@ html {
   font-size: 1.5625rem;
   padding: .5em 1.5em
 }
+
+.pswp__custom-caption {
+  background: hsl(0deg 100% 0% / .4);
+  font-size: 1rem;
+  font-family: 'Work Sans';
+  color: #fff;
+  width: 100%;
+  max-width: 30em;
+  padding: .25rem .625rem;
+  border-radius: .375rem;
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  text-align: center
+}
+.pswp__custom-caption a {
+  color: hsl(120deg 75% 70%);
+  text-decoration: none;
+  border-bottom: 1px solid
+}
