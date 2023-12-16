@@ -113,15 +113,54 @@ html {
   line-height: 1.4
 }
 
+.page-body sup {
+  font-size: .66667em
+}
+
+.page-body p > a {
+  color: #A67808;
+  text-decoration: none;
+  border-block-end: 1px solid #A67808
+}
+@media (hover:hover) and (pointer:fine){
+  .page-body p > a {
+    border-block-end-color: transparent;
+    transition: border-color 250ms ease
+  }
+  .page-body p > a:hover {
+    border-block-end-color: #A67808
+  }
+}
+.page-body p > a::after {
+  content: "";
+  background-image: url("data:image/svg+xml, %3Csvg%20xmlns='http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox='0%200%20512%20512'%3E%3Cpath%20fill='%23A67808'%20d='M320%200c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h82.7L201.4%20265.4c-12.5%2012.5-12.5%2032.8%200%2045.3s32.8%2012.5%2045.3%200L448%20109.3V192c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32V32c0-17.7-14.3-32-32-32H320zM80%2032C35.8%2032%200%2067.8%200%20112V432c0%2044.2%2035.8%2080%2080%2080H400c44.2%200%2080-35.8%2080-80V320c0-17.7-14.3-32-32-32s-32%2014.3-32%2032V432c0%208.8-7.2%2016-16%2016H80c-8.8%200-16-7.2-16-16V112c0-8.8%207.2-16%2016-16H192c17.7%200%2032-14.3%2032-32s-14.3-32-32-32H80z'%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  block-size: .5em;
+  inline-size: .5em;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: text-top;
+  margin: 0 0 0 .125em
+}
+.page-body p > abbr {
+  text-decoration: none;
+  border-block-end: .125rem dotted #A67808
+}
+
 .page-body p:not(:first-child) {
   margin: 1.5em 0 0
 }
 
+.page-body p + :where(ol, ul) {
+  margin: .5em 0 0
+}
 .page-body p + ol {
   counter-reset: section;
   list-style: none;
-  margin: .5em 0 0;
   padding-inline-start: 3.5em
+}
+.page-body p + ul {
+  padding-inline-start: 2em
 }
 
 .page-body p + ol li {

@@ -21,7 +21,7 @@
       }
     };
     handleCtaLabel() {
-      const ctaElem = d.querySelector("p > span");
+      const ctaElem = d.querySelector("span.cta-label");
       if (w.matchMedia('(hover:hover) and (pointer:fine)')) {
         ctaElem.textContent = "click";
       }
