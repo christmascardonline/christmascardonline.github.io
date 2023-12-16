@@ -212,9 +212,9 @@
         isButton: false,
         appendTo: 'root',
         html: 'Caption text',
-        onInit: ({ innerHTML : elInnerHTML }, { currSlide: { data : currSlideData } }) => {
+        onInit: (el, pswp) => {
             lightbox.pswp.on('change', () => {
-                elInnerHTML = 'caption' in currSlideData ? currSlideData.caption : currSlideData.alt;
+                el.innerHTML = 'caption' in lightbox.pswp.currSlide.data ? lightbox.pswp.currSlide.data.caption : lightbox.pswp.currSlide.data.alt;
             });
         }
     });
