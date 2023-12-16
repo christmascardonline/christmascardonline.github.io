@@ -212,19 +212,9 @@
         isButton: false,
         appendTo: 'root',
         html: 'Caption text',
-        onInit: (el, pswp) => {
+        onInit: ({ innerHTML : elInnerHTML }, { currSlide: { data : currSlideData } }) => {
             lightbox.pswp.on('change', () => {
-                const isCurrSlideCaption = 'caption' in lightbox.pswp.currSlide.data;
-                let captionHTML = '';
-                if( isCurrSlideCaption ){
-                    const caption = lightbox.pswp.currSlide.data.caption;
-                    if( caption ){
-                        captionHTML = caption;
-                    } else {
-                        captionHTML = lightbox.pswp.currSlide.data.alt;
-                    }
-                }
-                el.innerHTML = captionHTML || '';
+                elInnerHTML = 'caption' in currSlideData ? currSlideData.caption : currSlideData.alt;
             });
         }
     });
