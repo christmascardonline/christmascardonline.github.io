@@ -17,6 +17,32 @@ html {
     radial-gradient(at 0% 0%, hsla(0 100% 50% / .6) 0, transparent 50%);
   background-attachment: fixed
 }
+@supports (-webkit-touch-callout:none){
+  @media (min-width:20em) and (max-width:85.375em) and (hover:none){
+    html {
+      background-color: initial;
+      background-image: none;
+      background-attachment: initial
+    }
+  }
+}
+
+@supports (-webkit-touch-callout:none){
+  @media (min-width:20em) and (max-width:85.375em) and (hover:none){
+    body > .bg {
+      position: fixed;
+      inset: 0 auto auto 0;
+      block-size: 100lvh;
+      inline-size: 100%;
+      background-image:
+        radial-gradient(at 100% 100%, hsla(120 100% 50% / .6) 0, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(0 100% 50% / .6) 0, transparent 50%);
+      background-color: #fff;
+      background-attachment: fixed;
+      background-repeat: no-repeat
+    }
+  }
+}
 
 .page-main {
   padding-block: 3.125rem
